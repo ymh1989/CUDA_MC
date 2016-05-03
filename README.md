@@ -15,8 +15,8 @@ This repo contains an implementation of pricing financial derivatives using Mont
 
  Case | European call
 ------------ | -------------
-CPU | 88ms
-GPU | 275ms
+GPU | 88ms
+CPU | 275ms
 ** As you can see in `Environment`, the GPU which I tested is old type(2012 late), however, the CPU is latest model(2016 early). So please understand that there is no marked difference in computational cost.
 
 
