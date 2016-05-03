@@ -9,6 +9,7 @@ This repo contains an implementation of pricing financial derivatives using Mont
 - CPU : Intel(R) Core(TM) i5-6400 @ 2.7GHZ 
 - RAM : DDR3L 16GB PC3-12800
 - Microsoft Visual Studio Community 2013
+
 ###Result###
 - In this repo, I compare the performance between CPU and GPU. The parameter can be modified freely.
 
