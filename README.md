@@ -23,4 +23,4 @@ GPU | 264ms
 ###Note###
 - You need to add `curand.lib` files as linker input in the development environment.
 - Also, the platform you are targetting in VS configuration manager should be `x64`, since `curand.lib` is `x64` library.
-- If you're interested in my works, please visit my [homepage](https://sites.google.com/site/yoomh1989/)
+- If you're interested in my works, please visit my [homepage](https://sites.google.com/site/yoomh1989/).
