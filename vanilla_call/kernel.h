@@ -28,6 +28,6 @@ typedef struct optionData
 
 }optionData;
 
-void Vanilla_Call_single(optionData option, double * d_s, double * d_normals, unsigned N_STEPS, unsigned N_PATHS);
+void Vanilla_Call_single(optionData option, double * d_s, double * d_normals, unsigned N_STEPS, unsigned N_SIMULS);
 
 #endif

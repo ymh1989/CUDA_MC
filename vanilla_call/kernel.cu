@@ -5,12 +5,12 @@ __global__ void Kernel_Vanilla_Call_single(
 	double * d_s,
 	double * d_normals,
 	unsigned N_STEPS,
-	unsigned N_PATHS)
+	unsigned N_SIMULS)
 {
 	int s_idx = threadIdx.x + blockIdx.x * blockDim.x; // i
 	int n_idx = (s_idx)* N_STEPS;
 
-	if (s_idx < N_PATHS) {
+	if (s_idx < N_SIMULS) {
 		int n = 0;
 
 		double s_curr = data.S0;
@@ -43,9 +43,9 @@ void Vanilla_Call_single(
 	double * d_s,
 	double * d_normals,
 	unsigned N_STEPS,
-	unsigned N_PATHS) {
+	unsigned N_SIMULS) {
 	const unsigned BLOCK_SIZE = 1024;
-	const unsigned GRID_SIZE = CEIL(N_PATHS, BLOCK_SIZE);
+	const unsigned GRID_SIZE = CEIL(N_SIMULS, BLOCK_SIZE);
 	Kernel_Vanilla_Call_single << <GRID_SIZE, BLOCK_SIZE >> >
-		(option, d_s, d_normals, N_STEPS, N_PATHS);
+		(option, d_s, d_normals, N_STEPS, N_SIMULS);
 }
