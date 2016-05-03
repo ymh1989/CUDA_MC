@@ -5,6 +5,10 @@
 #include <algorithm>
 #include <cuda_runtime.h>
 
+// This header is referred at follow link.
+// https://www.quantstart.com/articles/Monte-Carlo-Simulations-In-CUDA-Barrier-Option-Pricing
+// Easy form for CUDA syntax
+
 template <typename T>
 class dev_array
 {

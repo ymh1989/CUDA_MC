@@ -7,12 +7,14 @@ __global__ void Kernel_Vanilla_Call_single(
 	unsigned N_STEPS,
 	unsigned N_SIMULS)
 {
-	int s_idx = threadIdx.x + blockIdx.x * blockDim.x; // i
-	int n_idx = (s_idx)* N_STEPS;
+	int s_idx = threadIdx.x + blockIdx.x * blockDim.x; // thread index
+	int n_idx = (s_idx)* N_STEPS; // for random number indexing
 
+	// check thread # < # of simuls
 	if (s_idx < N_SIMULS) {
 		int n = 0;
 
+		// Initialize
 		double s_curr = data.S0;
 		double T = data.T;
 		double sig = data.sig;
@@ -26,14 +28,17 @@ __global__ void Kernel_Vanilla_Call_single(
 		do {
 			s_curr = s_curr * exp((r - (sig*sig)*0.5)*dt + sig*sqrdt*d_normals[n_idx]);
 			
-			n_idx++;
-			n++;
+			n_idx++; // random number index
+			n++; // time stepping
 		} while (n < N_STEPS);
 
+		// payoff using ternary operator
 		payoff = (s_curr > K)  ? (s_curr - K) : 0;
 
+		// to save results, sycronize threads
 		__syncthreads();
 
+		// save payoff
 		d_s[s_idx] = payoff;
 	}
 }

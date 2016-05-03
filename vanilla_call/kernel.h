@@ -1,6 +1,7 @@
 #ifndef _KERNEL_CUH_
 #define _KERNEL_CUH_
 #define CEIL(a, b) (((a)+(b)-1) / (b))
+
 typedef struct optionData
 {
 	double S0;

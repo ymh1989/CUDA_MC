@@ -13,7 +13,6 @@ using namespace std;
 
 int main() {
 	try {
-		// Variables
 		// declare variables and constants		
 		const size_t N_SIMULS = 10000000;
 		const size_t N_STEPS = 1;
