@@ -1,4 +1,4 @@
-##Monte Calro simulation using CUDA##
+##Monte Carlo simulation to option pricing in CUDA ##
 
 ###Introduction###
 This repo contains an implementation of pricing financial derivatives using Monte Calo simulation with CUDA(Compute Unified Device Architecture).
@@ -13,10 +13,10 @@ This repo contains an implementation of pricing financial derivatives using Mont
 ###Result###
 - In this repo, I compare the performance between CPU and GPU. The parameters can be modified freely.
 
- Case | European call
------------- | -------------
-GPU | 88ms
-CPU | 275ms
+  | European call | UP&out call | ELS 1 asset<p>(price&greeks)| ELS 2 asset<p>(price&greeks)
+------------ | ------------- | ------------- | -------------
+GPU | 88ms <p>(10^7^ simuls) | 251ms <p>(10^5^ simuls)| 131ms <p>(10^4^ simuls) | 48ms <p>(10^4^ simuls)
+CPU | 275ms <p>(10^7^ simuls) | 484ms <p>(10^5^ simuls)| N/A | N/A
 ** As you can see in `Environment`, the GPU which I tested is old type(2012 late), however, the CPU is latest model(2016 early). So please understand that there is no marked difference in computational cost.
 
 
