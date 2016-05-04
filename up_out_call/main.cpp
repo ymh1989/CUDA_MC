@@ -15,7 +15,7 @@ int main() {
 	try {
 		// declare variables and constants		
 		const size_t N_SIMULS = 100000;
-		const size_t N_STEPS = 360;
+		const size_t N_SIMULS = 360;
 		
 		const double S0_1 = 100;
 		const double T = 1.0;
@@ -25,8 +25,8 @@ int main() {
 		const double B = 130;
 
 		// make variables
-		const size_t N_NORMALS = N_SIMULS*N_STEPS;
-		double dt = double(T) / double(N_STEPS);
+		const size_t N_NORMALS = N_SIMULS*N_SIMULS;
+		double dt = double(T) / double(N_SIMULS);
 		double sqrdt = sqrt(dt);
 		///////////////////////////////////////////////	
 		
@@ -48,7 +48,7 @@ int main() {
 		double t1 = double(clock()) / CLOCKS_PER_SEC;	
 
 		// call the kernel
-		up_out_barrier_single(o1, d_s.getData(), d_normals.getData(), N_STEPS, N_SIMULS);
+		up_out_barrier_single(o1, d_s.getData(), d_normals.getData(), N_SIMULS, N_SIMULS);
 
 		cudaDeviceSynchronize();	
 
@@ -77,7 +77,7 @@ int main() {
 		int n_idx = 0;
 		int n = 0;
 		for (size_t i = 0; i < N_SIMULS; i++) {
-			n_idx = i*N_STEPS;
+			n_idx = i*N_SIMULS;
 
 			s_curr = S0_1;
 			tag = 0;
@@ -90,7 +90,7 @@ int main() {
 
 				n_idx++;
 				n++;
-			} while (n < N_STEPS);
+			} while (n < N_SIMULS);
 
 			payoff = tag ? 0 : ((s_curr > K) ? (s_curr - K) : 0);
 			cpu_sum += exp(-r*T) * payoff;
@@ -114,7 +114,7 @@ int main() {
 		cout << "Risk-free Interest Rate : ";
 		cout << r << endl;
 		cout << "Number of Simulations: " << N_SIMULS << "\n";
-		cout << "Number of Steps: " << N_STEPS << "\n";
+		cout << "Number of Steps: " << N_SIMULS << "\n";
 
 		cout << "****************** PRICE ******************\n";
 		cout << "Option Price (GPU): " << gpu_sum << "\n";

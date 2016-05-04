@@ -32,6 +32,6 @@ typedef struct optionData
 
 }optionData;
 
-void up_out_barrier_single(optionData option, double * d_s, double * d_normals, unsigned N_STEPS, unsigned N_SIMULS);
+void up_out_barrier_single(optionData option, double * d_s, double * d_normals, unsigned N_SIMULS, unsigned N_SIMULS);
 
 #endif
