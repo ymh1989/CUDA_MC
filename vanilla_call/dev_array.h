@@ -23,7 +23,7 @@ public:
 	explicit dev_array(size_t size)
 	{
 		allocate(size);
-	}
+	} 
 	// destructor
 	~dev_array()
 	{

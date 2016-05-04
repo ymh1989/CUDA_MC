@@ -49,8 +49,8 @@ void Vanilla_Call_single(
 	double * d_normals,
 	unsigned N_STEPS,
 	unsigned N_SIMULS) {
-	const unsigned BLOCK_SIZE = 1024;
-	const unsigned GRID_SIZE = CEIL(N_SIMULS, BLOCK_SIZE);
+	const unsigned BLOCK_SIZE = 1024; // # of threads in a block (1-dimension threads & block)
+	const unsigned GRID_SIZE = CEIL(N_SIMULS, BLOCK_SIZE); // # of block in a grid
 	Kernel_Vanilla_Call_single << <GRID_SIZE, BLOCK_SIZE >> >
 		(option, d_s, d_normals, N_STEPS, N_SIMULS);
 }
