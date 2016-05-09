@@ -79,6 +79,7 @@ __global__ void KiELS2_kernel(
 		payoff = payoff*exp(-r1 * date[cnt2] / 360.0);
 
 		__syncthreads();
+
 		d_s[s_idx] = payoff;
 	}
 }
