@@ -13,14 +13,15 @@ This repo contains an implementation of pricing financial derivatives using Mont
 ###Result###
 - In this repo, I compare the performance between CPU and GPU. The parameters can be modified freely.
 
-  | European call | UP&out call | ELS 1 asset<p>(price&greeks)| ELS 2 asset<p>(price&greeks)
------------- | ------------- | ------------- | -------------
-GPU | 88ms <p>(10^7^ simuls)</p> | 251ms <p>(10^5^ simuls)</p>| 131ms <p>(10^4^ simuls)</p> | 486ms <p>(10^4^ simuls)
-CPU | 275ms <p>(10^7^ simuls)</p> | 484ms <p>(10^5^ simuls)</p>| N/A | N/A
+  | European call | UP&out call | ELS 1 asset<p>(price&greeks)| ELS 2 asset<p>(price&greeks) | ELS 3 asset<p>(price&greeks)
+------------ | ------------- | ------------- | ------------- | -------------
+GPU | 88ms <p>(10^7^ simuls)</p> | 251ms <p>(10^5^ simuls)</p>| 131ms <p>(10^4^ simuls)</p> | 486ms <p>(10^4^ simuls) | 703ms <p>(10^4^ simuls)
+CPU | 275ms <p>(10^7^ simuls)</p> | 484ms <p>(10^5^ simuls)</p>| N/A | N/A | N/A
 ** As you can see in `Environment`, the GPU which I tested is old type(2012 late), however, the CPU is latest model(2016 early). So please understand that there is no marked difference in computational cost.
 
 
 ###Note###
-- You need to add `curand.lib` files as linker input in the development environment.
-- Also, the platform you are targetting in VS configuration manager should be `x64`, since `curand.lib` is `x64` library.
+- You need to add `curand.lib` and `cublas.lib` files as linker input in the development environment.
+- Also, the platform you are targetting in VS configuration manager should be `x64`, since `curand.lib` and `cublas.lib` are `x64` library on `CUDA toolkit 7.5`
+- Current version is not optimized such as `shared memory`.
 - If you're interested in my works, please visit my [homepage](https://sites.google.com/site/yoomh1989/).
