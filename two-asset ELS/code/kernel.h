@@ -8,6 +8,7 @@ typedef struct optionData
 	double S0;
 	double S0_ref;
 	double r;
+	double discr;
 	double T;
 	double sigma;
 	double dt;
@@ -20,6 +21,7 @@ typedef struct optionData
 	optionData(double _S0,
 		double _S0_ref,
 		double _r,
+		double _discr,
 		double _T,
 		double _sigma,
 		double _dt,
@@ -27,7 +29,8 @@ typedef struct optionData
 		double _B,
 		double _dummy)
 	{
-		S0 = _S0; S0_ref = _S0_ref; r = _r; T = _T;
+		S0 = _S0; S0_ref = _S0_ref; r = _r; 
+		discr = _discr; T = _T;
 		sigma = _sigma; dt = _dt;
 		sqrdt = _sqrdt;
 		B = _B; dummy = _dummy;
