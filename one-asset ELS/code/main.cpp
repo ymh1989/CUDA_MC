@@ -27,6 +27,7 @@ int main() {
 		const double sig1 = 0.3;
 
 		const double r = 0.0165;
+		const double discr = 0.0165;
 		const double dummy = 0.075;
 
 		const double stk[] = { 0.95, 0.9, 0.85, 0.8, 0.75, 0.7};
@@ -70,9 +71,9 @@ int main() {
 
 		dev_array<double> d_normals(N_NORMALS);
 
-		optionData o1(S0_1, S0_1, r, T, sig1, dt, sqrdt, B, dummy);
-		optionData o2(S0_1 * (1.0 + 0.5*diff), S0_1, r, T, sig1, dt, sqrdt, B, dummy); // for greeks
-		optionData o3(S0_1 * (1.0 - 0.5*diff), S0_1, r, T, sig1, dt, sqrdt, B, dummy); // for greeks
+		optionData o1(S0_1, S0_1, r, discr, T, sig1, dt, sqrdt, B, dummy);
+		optionData o2(S0_1 * (1.0 + 0.5*diff), S0_1, r, discr, T, sig1, dt, sqrdt, B, dummy); // for greeks
+		optionData o3(S0_1 * (1.0 - 0.5*diff), S0_1, r, discr, T, sig1, dt, sqrdt, B, dummy); // for greeks
 
 		// make a book
 		optionData book[] = {o1, o2, o3};
@@ -93,6 +94,7 @@ int main() {
 		cout << "Barrier: " << B << "\n";
 		cout << "Time to Maturity: " << T << " years\n";
 		cout << "Risk-free Interest Rate: " << r << "\n";
+		cout << "Discount Rate: " << discr << "\n";
 		cout << "Volatility: " << sig1 << "\n";
 		cout << "Face Value: " << 10000 << "\n";
 

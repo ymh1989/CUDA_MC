@@ -71,7 +71,7 @@ __global__ void KiELS1_kernel(
 			cnt2 = length - 1;
 		}
 		// payoff using ternary operator (calendar convention : 360days)
-		payoff = payoff * exp(-r * date[cnt2] / 360.0);
+		payoff = payoff * exp(-data.discr * date[cnt2] / 360.0);
 
 		// to save results, sycronize threads
 		__syncthreads();
