@@ -25,7 +25,10 @@ int main() {
 		const double S0_1 = 2081.18; const double S0_2 = 3674.05; const double S0_3 = 27094.93;
 		const double sig1 = 0.2379; const double sig2 = 0.2330; const double sig3 = 0.2857;
 		
-		const double r = 0.0165;
+		const double r1 = 0.0165;
+		const double r2 = 0.0185;
+		const double r3 = 0.0105;
+		const double discr = 0.0165;
 		const double dummy = 0.075;
 
 		// this exmample set 6 observation dates.
@@ -89,15 +92,15 @@ int main() {
 
 		d_normals.~dev_matrix(); chol.~dev_matrix(); // destruct unnecessary array for memory space
 
-		optionData o1(S0_1, S0_1, r, T, sig1, dt, sqrdt, B, dummy);  // zero tick
-		optionData o2(S0_2, S0_2, r, T, sig2, dt, sqrdt, B, dummy);
-		optionData o3(S0_3, S0_3, r, T, sig3, dt, sqrdt, B, dummy);
-		optionData o4(S0_1 * (1.0 + 0.5*diff), S0_1, r, T, sig1, dt, sqrdt, B, dummy); // up tick
-		optionData o5(S0_2 * (1.0 + 0.5*diff), S0_2, r, T, sig2, dt, sqrdt, B, dummy);
-		optionData o6(S0_3 * (1.0 + 0.5*diff), S0_3, r, T, sig3, dt, sqrdt, B, dummy);
-		optionData o7(S0_1 * (1.0 - 0.5*diff), S0_1, r, T, sig1, dt, sqrdt, B, dummy); // down tick
-		optionData o8(S0_2 * (1.0 - 0.5*diff), S0_2, r, T, sig2, dt, sqrdt, B, dummy);
-		optionData o9(S0_3 * (1.0 - 0.5*diff), S0_3, r, T, sig3, dt, sqrdt, B, dummy);
+		optionData o1(S0_1, S0_1, r1, discr, T, sig1, dt, sqrdt, B, dummy);  // zero tick
+		optionData o2(S0_2, S0_2, r2, discr, T, sig2, dt, sqrdt, B, dummy);
+		optionData o3(S0_3, S0_3, r3, discr, T, sig3, dt, sqrdt, B, dummy);
+		optionData o4(S0_1 * (1.0 + 0.5*diff), S0_1, r1, discr, T, sig1, dt, sqrdt, B, dummy); // up tick
+		optionData o5(S0_2 * (1.0 + 0.5*diff), S0_2, r2, discr, T, sig2, dt, sqrdt, B, dummy);
+		optionData o6(S0_3 * (1.0 + 0.5*diff), S0_3, r3, discr, T, sig3, dt, sqrdt, B, dummy);
+		optionData o7(S0_1 * (1.0 - 0.5*diff), S0_1, r1, discr, T, sig1, dt, sqrdt, B, dummy); // down tick
+		optionData o8(S0_2 * (1.0 - 0.5*diff), S0_2, r2, discr, T, sig2, dt, sqrdt, B, dummy);
+		optionData o9(S0_3 * (1.0 - 0.5*diff), S0_3, r3, discr, T, sig3, dt, sqrdt, B, dummy);
 
 		// make a book
 		optionData book[] = { o1, o2, o3, o4, o5, o6, o7, o8, o9 };
@@ -187,7 +190,10 @@ int main() {
 		cout << "Underlying Initial Price: " << S0_1 << " " << S0_2 << " " << S0_3 << "\n";
 		cout << "Barrier: " << B << "\n";
 		cout << "Time to Maturity: " << T << " years\n";
-		cout << "Risk-free Interest Rate: " << r << "\n";
+		cout << "Risk-free Interest Rate 1: " << r1 << "\n";
+		cout << "Risk-free Interest Rate 2: " << r2 << "\n";
+		cout << "Risk-free Interest Rate 3: " << r3 << "\n";
+		cout << "Discount rate: " << discr << "\n";
 		cout << "Volatility: " << sig1 << " " << sig2 << " " << sig3 << "\n";
 		cout << "Face Value: " << 10000 << "\n";
 		cout << "****************** PRICE, GREEK ******************\n";

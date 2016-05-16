@@ -83,7 +83,7 @@ __global__ void KiELS3_kernel(
 			cnt2 = length - 1;
 		}
 		
-		payoff = payoff * exp(-r1 * date[cnt2] / 360.0);
+		payoff = payoff * exp(-data1.discr * date[cnt2] / 360.0);
 
 		__syncthreads();
 
