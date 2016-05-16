@@ -24,12 +24,13 @@ int main() {
 		const double B = 0.6;
 		const double S0_1 = 2081.18; const double S0_2 = 3674.05;
 		const double sig1 = 0.2379; const double sig2 = 0.2330;
-		const double r = 0.03;
-		const double dummy = 0.045;
+
+		const double r = 0.0165;
+		const double dummy = 0.075;	
 
 		// this exmample set 6 observation dates.
-		const double stk[] = { 0.90, 0.90, 0.85, 0.85, 0.80, 0.80 };
-		const double coupon[] = { 0.075, 0.0625, 0.05, 0.0375, 0.025, 0.0125 };
+		const double stk[] = { 0.95, 0.9, 0.85, 0.8, 0.75, 0.7 };
+		const double coupon[] = { 0.0125, 0.025, 0.0375, 0.05, 0.0625, 0.075 };
 		const double date[] = { ceil(N_STEPS * 1.0 / length), ceil(N_STEPS * 2.0 / length),
 			ceil(N_STEPS * 3.0 / length), ceil(N_STEPS * 4.0 / length),
 			ceil(N_STEPS * 5.0 / length), ceil(N_STEPS * 6.0 / length) };
