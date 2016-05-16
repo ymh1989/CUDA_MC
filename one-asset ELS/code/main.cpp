@@ -27,10 +27,10 @@ int main() {
 		const double sig1 = 0.3;
 
 		const double r = 0.0165;
-		const double dummy = 0.09;
+		const double dummy = 0.075;
 
 		const double stk[] = { 0.95, 0.9, 0.85, 0.8, 0.75, 0.7};
-		const double coupon[] = { 0.075, 0.0625, 0.05, 0.0375, 0.025, 0.0125 };
+		const double coupon[] = { 0.0125, 0.025, 0.0375, 0.05, 0.0625, 0.075 };
 
 		// this exmample set 6 observation dates.
 		const double date[] = { ceil(N_STEPS * 1.0 / length), ceil(N_STEPS * 2.0 / length), 
