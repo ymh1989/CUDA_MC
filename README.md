@@ -12,7 +12,7 @@ This repo contains an implementation of pricing financial derivatives using Mont
 
 ### Result
 - In this repo, I compare the performance between CPU and GPU. The parameters can be modified freely.
-  | European call | UP&out call | ELS 1 asset<p>(price&greeks)| ELS 2 asset<p>(price&greeks) | ELS 3 asset<p>(price&greeks)
+| European call | UP&out call | ELS 1 asset<p>(price&greeks)| ELS 2 asset<p>(price&greeks) | ELS 3 asset<p>(price&greeks)
 ------------ | ------------- | ------------- | ------------- | -------------
 GPU | 88ms <p>(10<sup>7</sup> simuls)</p> | 251ms <p>(10<sup>5</sup> simuls)</p>| 129ms <p>(10<sup>4</sup> simuls)</p> | 223ms <p>(10<sup>4</sup> simuls) | 833ms <p>(10<sup>4</sup> simuls)
 CPU | 275ms <p>(10<sup>7</sup> simuls)</p> | 484ms <p>(10<sup>5</sup> simuls)</p>| N/A | N/A | N/A
